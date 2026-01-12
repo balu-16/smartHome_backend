@@ -70,4 +70,19 @@ export class UsersService {
     const customer = new this.userModel(data);
     return customer.save();
   }
+
+  async createAdmin(data: { phone_number: string; full_name: string; email?: string; admin_id?: string }): Promise<EmployeeDataDocument> {
+    const admin = new this.employeeDataModel(data);
+    return admin.save();
+  }
+
+  async deleteCustomer(id: string): Promise<boolean> {
+    const result = await this.userModel.findByIdAndDelete(id).exec();
+    return !!result;
+  }
+
+  async deleteAdmin(id: string): Promise<boolean> {
+    const result = await this.employeeDataModel.findByIdAndDelete(id).exec();
+    return !!result;
+  }
 }
