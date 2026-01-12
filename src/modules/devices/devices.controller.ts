@@ -74,6 +74,7 @@ export class DevicesController {
     // Update the device record
     const updatedDevice = await this.devicesService.update(device._id.toString(), {
       allocated_to_customer_id: user_id,
+      allocated_to_customer_name: user_name,
       allocated_at: allocatedAt,
       device_name: device_name || device.device_name,
       room_id: room_id,

@@ -20,6 +20,9 @@ export class Device {
   @Prop()
   allocated_to_customer_id: string;
 
+  @Prop()
+  allocated_to_customer_name: string;
+
   @Prop({ default: true })
   is_active: boolean;
 

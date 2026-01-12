@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { setupSwagger } from './swagger/swagger.config';
 
 let app: NestExpressApplication;
 
@@ -30,6 +31,9 @@ async function bootstrap() {
         forbidNonWhitelisted: false,
       }),
     );
+
+    // Setup Swagger API Documentation at /docs
+    setupSwagger(app);
 
     await app.init();
   }
