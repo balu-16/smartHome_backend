@@ -11,7 +11,12 @@ async function bootstrap() {
 
     // Enable CORS with proper configuration
     app.enableCors({
-      origin: true,
+      origin: [
+        'https://smart-home-frontend-six.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:3000',
+        'http://localhost:8080'
+      ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       credentials: true,
       allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'x-device-api-key'],
